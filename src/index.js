@@ -15,20 +15,6 @@ export const compareAnswers = (expectedAnswer, receivedAnswer) => {
   return false;
 };
 
-
-// export const checkWonOrLost = () => {
-//   for (let i = 0; i < 3; i += 1) {
-//     const randomInt = getRandomInt(0, 100);
-//     askQuestion(randomInt);
-//     const answer = readlineSync.question('Your answer: ');
-//     if (!checkAnswer(randomInt, answer)) {
-//       return false;
-//     }
-//   }
-//   return true;
-// };
-
-
 export const checkWonOrLost = (gameRealisation, name) => {
   for (let i = 0; i < 3; i += 1) {
     if (!gameRealisation()) {
