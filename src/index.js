@@ -6,7 +6,7 @@ export const getRandomInt = (min, max) => {
   return Math.round(rand);
 };
 
-export const compareAnswers = (expectedAnswer, receivedAnswer) => {
+export const isAnswerCorrect = (expectedAnswer, receivedAnswer) => {
   if (expectedAnswer === receivedAnswer) {
     console.log('Correct!');
     return true;
@@ -15,7 +15,7 @@ export const compareAnswers = (expectedAnswer, receivedAnswer) => {
   return false;
 };
 
-export const checkWonOrLost = (gameRealisation, name) => {
+export const isGameSuccessful = (gameRealisation, name) => {
   for (let i = 0; i < 3; i += 1) {
     if (!gameRealisation()) {
       console.log(`Let's try again, ${name}!`);

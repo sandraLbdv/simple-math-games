@@ -1,22 +1,20 @@
 import readlineSync from 'readline-sync';
-import { getRandomInt, compareAnswers } from '..';
+import { getRandomInt, isAnswerCorrect } from '..';
 
-const checkEvenOrNot = (number) => {
-  let correctAnswer;
+const isEven = (number) => {
   if (number % 2 === 0) {
-    correctAnswer = 'yes';
-  } else {
-    correctAnswer = 'no';
+    return true;
   }
-  return correctAnswer;
+  return false;
 };
 
 export default () => {
   const randomInt = getRandomInt(0, 100);
   console.log(`Question: ${randomInt}`);
 
-  const expectedAnswer = checkEvenOrNot(randomInt);
+  const expectedAnswer = isEven(randomInt) ? 'yes' : 'no';
+
   const receivedAnswer = readlineSync.question('Your answer: ');
 
-  return compareAnswers(expectedAnswer, receivedAnswer);
+  return isAnswerCorrect(expectedAnswer, receivedAnswer);
 };

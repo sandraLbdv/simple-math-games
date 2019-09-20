@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { getRandomInt, compareAnswers } from '..';
+import { getRandomInt, isAnswerCorrect } from '..';
 
 export default () => {
   const commonDifference = getRandomInt(1, 10);
@@ -24,5 +24,5 @@ export default () => {
   const expectedAnswer = missedMember;
   const receivedAnswer = readlineSync.question('Your answer: ');
 
-  return compareAnswers(expectedAnswer, Number(receivedAnswer));
+  return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
 };

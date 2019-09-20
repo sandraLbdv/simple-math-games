@@ -1,26 +1,26 @@
 import readlineSync from 'readline-sync';
-import { getRandomInt, compareAnswers } from '..';
+import { getRandomInt, isAnswerCorrect } from '..';
 
-const checkPrimeOrNot = (number) => {
+const isPrime = (number) => {
   if (number === 1) {
-    return 'no';
+    return false;
   }
 
   for (let i = 2; i < Math.sqrt(number); i += 1) {
     if (number % i === 0) {
-      return 'no';
+      return false;
     }
   }
 
-  return 'yes';
+  return true;
 };
 
 export default () => {
   const randomInt = getRandomInt(0, 50);
   console.log(`Question: ${randomInt}`);
 
-  const expectedAnswer = checkPrimeOrNot(randomInt);
+  const expectedAnswer = isPrime(randomInt) ? 'yes' : 'no';
   const receivedAnswer = readlineSync.question('Your answer: ');
 
-  return compareAnswers(expectedAnswer, receivedAnswer);
+  return isAnswerCorrect(expectedAnswer, receivedAnswer);
 };

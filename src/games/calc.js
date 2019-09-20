@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
 import readlineSync from 'readline-sync';
-import { getRandomInt, compareAnswers } from '..';
+import { getRandomInt, isAnswerCorrect } from '..';
 
 const getExpressionResult = (number1, operation, number2) => {
   switch (operation) {
@@ -28,5 +28,5 @@ export default () => {
   const expectedAnswer = getExpressionResult(number1, randomOperatorChosen, number2);
   const receivedAnswer = readlineSync.question('Your answer: ');
 
-  return compareAnswers(expectedAnswer, Number(receivedAnswer));
+  return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
 };

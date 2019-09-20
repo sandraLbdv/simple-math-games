@@ -1,11 +1,11 @@
 import readlineSync from 'readline-sync';
-import { getRandomInt, compareAnswers } from '..';
+import { getRandomInt, isAnswerCorrect } from '..';
 
-const getRightAnswer = (number1, number2) => {
+const getGCD = (number1, number2) => {
   if (number2 === 0) {
     return number1;
   }
-  return getRightAnswer(number2, number1 % number2);
+  return getGCD(number2, number1 % number2);
 };
 
 export default () => {
@@ -14,8 +14,8 @@ export default () => {
 
   console.log(`Question: ${number1}, ${number2}`);
 
-  const expectedAnswer = getRightAnswer(number1, number2);
+  const expectedAnswer = getGCD(number1, number2);
   const receivedAnswer = readlineSync.question('Your answer: ');
 
-  return compareAnswers(expectedAnswer, Number(receivedAnswer));
+  return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
 };
