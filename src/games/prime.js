@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { getRandomInt, isAnswerCorrect } from '..';
 
 const isPrime = (number) => {
-  if (number === 1) {
+  if ((number === 1) || (number === 0)) {
     return false;
   }
 
@@ -16,10 +16,10 @@ const isPrime = (number) => {
 };
 
 export default () => {
-  const randomInt = getRandomInt(0, 50);
-  console.log(`Question: ${randomInt}`);
+  const question = getRandomInt(0, 50);
+  console.log(`Question: ${question}`);
 
-  const expectedAnswer = isPrime(randomInt) ? 'yes' : 'no';
+  const expectedAnswer = isPrime(question) ? 'yes' : 'no';
   const receivedAnswer = readlineSync.question('Your answer: ');
 
   return isAnswerCorrect(expectedAnswer, receivedAnswer);
