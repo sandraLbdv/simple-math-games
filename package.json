@@ -1,7 +1,6 @@
 {
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
-  "main": "index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
@@ -22,13 +21,17 @@
     "type": "git",
     "url": "git+https://github.com/sandraLbdv/frontend-project-lvl1.git"
   },
+  "keywords": [
+    "hexlet",
+    "brainGames"  
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sandraLbdv/frontend-project-lvl1/issues"
   },
   "homepage": "https://github.com/sandraLbdv/frontend-project-lvl1#readme",
-  "description": "",
+  "description": "frontend project lvl 1",
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
