@@ -1,5 +1,14 @@
-export const welcome = () => console.log('Welcome to the Brain Games!');
-export const greeting = (name) => console.log(`Hello, ${name}! \n`);
+import readlineSync from 'readline-sync';
+
+export const greeting = (gameDescription) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(gameDescription);
+
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}! \n`);
+
+  return name;
+};
 
 export const getRandomInt = (min, max) => {
   const rand = min - 0.5 + Math.random() * (max - min + 1);
@@ -25,3 +34,13 @@ export const isGameSuccessful = (gameRealisation, name) => {
   console.log(`Congratulations, ${name}!`);
   return true;
 };
+
+export const getUserAswer = () => readlineSync.question('Your answer: ');
+
+export const game = (gameRealisation, gameDescription) => {
+  const name = greeting(gameDescription);
+
+  return isGameSuccessful(gameRealisation, name);
+};
+
+export const askQuestion = (gameQuestion) => console.log(gameQuestion);

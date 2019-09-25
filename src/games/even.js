@@ -1,5 +1,6 @@
-import readlineSync from 'readline-sync';
-import { getRandomInt, isAnswerCorrect } from '..';
+import {
+  getRandomInt, isAnswerCorrect, askQuestion, getUserAswer,
+} from '..';
 
 const isEven = (number) => {
   if (number % 2 === 0) {
@@ -8,13 +9,16 @@ const isEven = (number) => {
   return false;
 };
 
-export default () => {
+export const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".\n';
+
+export const gameRealisation = () => {
   const randomInt = getRandomInt(0, 100);
-  console.log(`Question: ${randomInt}`);
+  const gameQuestion = `Question: ${randomInt}`;
+  askQuestion(gameQuestion);
 
   const expectedAnswer = isEven(randomInt) ? 'yes' : 'no';
 
-  const receivedAnswer = readlineSync.question('Your answer: ');
+  const receivedAnswer = getUserAswer();
 
   return isAnswerCorrect(expectedAnswer, receivedAnswer);
 };

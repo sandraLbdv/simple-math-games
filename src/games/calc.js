@@ -1,6 +1,7 @@
 /* eslint-disable default-case */
-import readlineSync from 'readline-sync';
-import { getRandomInt, isAnswerCorrect } from '..';
+import {
+  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion,
+} from '..';
 
 const getExpressionResult = (number1, operation, number2) => {
   switch (operation) {
@@ -14,19 +15,24 @@ const getExpressionResult = (number1, operation, number2) => {
   return null;
 };
 
-export default () => {
+const operators = '+*-';
+
+export const gameDescription = 'What is the result of the expression?\n';
+
+export const gameRealisation = () => {
   const number1 = getRandomInt(0, 10);
   const number2 = getRandomInt(0, 10);
 
-  const operators = '+*-';
+  const operatorsCount = operators.length;
 
-  const randomOperatorNumber = getRandomInt(0, 2);
+  const randomOperatorNumber = getRandomInt(0, operatorsCount - 1);
   const randomOperatorChosen = operators[randomOperatorNumber];
 
-  console.log(`Question: ${number1} ${randomOperatorChosen} ${number2}`);
+  const gameQuestion = `Question: ${number1} ${randomOperatorChosen} ${number2}`;
+  askQuestion(gameQuestion);
 
   const expectedAnswer = getExpressionResult(number1, randomOperatorChosen, number2);
-  const receivedAnswer = readlineSync.question('Your answer: ');
+  const receivedAnswer = getUserAswer();
 
   return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
 };

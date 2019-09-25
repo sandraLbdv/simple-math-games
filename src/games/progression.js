@@ -1,7 +1,10 @@
-import readlineSync from 'readline-sync';
-import { getRandomInt, isAnswerCorrect } from '..';
+import {
+  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion,
+} from '..';
 
-export default () => {
+export const gameDescription = 'What number is missing in the progression?\n';
+
+export const gameRealisation = () => {
   const commonDifference = getRandomInt(1, 10);
   const missedMemberNumber = getRandomInt(1, 10);
   const firstMember = getRandomInt(1, 10);
@@ -19,10 +22,11 @@ export default () => {
     }
   }
 
-  console.log(`Question: ${progression}`);
+  const gameQuestion = `Question: ${progression}`;
+  askQuestion(gameQuestion);
 
   const expectedAnswer = missedMember;
-  const receivedAnswer = readlineSync.question('Your answer: ');
+  const receivedAnswer = getUserAswer();
 
   return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
 };

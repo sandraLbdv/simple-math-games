@@ -1,12 +1,5 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import game from '../games/calc';
-import { welcome, greeting, isGameSuccessful } from '..';
+import { gameRealisation, gameDescription } from '../games/calc';
+import { game } from '..';
 
-welcome();
-console.log('What is the result of the expression?\n');
-
-const name = readlineSync.question('May I have your name? ');
-greeting(name);
-
-isGameSuccessful(game, name);
+game(gameRealisation, gameDescription);

@@ -1,12 +1,13 @@
-import readlineSync from 'readline-sync';
-import { getRandomInt, isAnswerCorrect } from '..';
+import {
+  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion,
+} from '..';
 
 const isPrime = (number) => {
   if ((number === 1) || (number === 0)) {
     return false;
   }
 
-  for (let i = 2; i < Math.sqrt(number); i += 1) {
+  for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
       return false;
     }
@@ -15,12 +16,16 @@ const isPrime = (number) => {
   return true;
 };
 
-export default () => {
+export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
+
+export const gameRealisation = () => {
   const question = getRandomInt(0, 50);
-  console.log(`Question: ${question}`);
+
+  const gameQuestion = `Question: ${question}`;
+  askQuestion(gameQuestion);
 
   const expectedAnswer = isPrime(question) ? 'yes' : 'no';
-  const receivedAnswer = readlineSync.question('Your answer: ');
+  const receivedAnswer = getUserAswer();
 
   return isAnswerCorrect(expectedAnswer, receivedAnswer);
 };
