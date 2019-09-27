@@ -1,19 +1,14 @@
 import {
-  getRandomInt, isAnswerCorrect, askQuestion, getUserAswer,
+  getRandomInt, isAnswerCorrect, askQuestion, getUserAswer, game,
 } from '..';
 
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    return true;
-  }
-  return false;
-};
+const isEven = (number) => number % 2 === 0;
 
 export const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".\n';
 
 export const gameRealisation = () => {
   const randomInt = getRandomInt(0, 100);
-  const gameQuestion = `Question: ${randomInt}`;
+  const gameQuestion = `${randomInt}`;
   askQuestion(gameQuestion);
 
   const expectedAnswer = isEven(randomInt) ? 'yes' : 'no';
@@ -22,3 +17,5 @@ export const gameRealisation = () => {
 
   return isAnswerCorrect(expectedAnswer, receivedAnswer);
 };
+
+export default () => game(gameRealisation, gameDescription);

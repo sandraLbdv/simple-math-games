@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { gameRealisation, gameDescription } from '../games/prime';
-import { game } from '..';
+import game from '../games/prime';
 
-game(gameRealisation, gameDescription);
+game();

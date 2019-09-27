@@ -1,5 +1,5 @@
 import {
-  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion,
+  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion, game,
 } from '..';
 
 export const gameDescription = 'What number is missing in the progression?\n';
@@ -22,7 +22,7 @@ export const gameRealisation = () => {
     }
   }
 
-  const gameQuestion = `Question: ${progression}`;
+  const gameQuestion = `${progression}`;
   askQuestion(gameQuestion);
 
   const expectedAnswer = missedMember;
@@ -30,3 +30,5 @@ export const gameRealisation = () => {
 
   return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
 };
+
+export default () => game(gameRealisation, gameDescription);

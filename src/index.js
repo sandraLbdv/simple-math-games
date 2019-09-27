@@ -1,15 +1,5 @@
 import readlineSync from 'readline-sync';
 
-export const greeting = (gameDescription) => {
-  console.log('Welcome to the Brain Games!');
-  console.log(gameDescription);
-
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}! \n`);
-
-  return name;
-};
-
 export const getRandomInt = (min, max) => {
   const rand = min - 0.5 + Math.random() * (max - min + 1);
   return Math.round(rand);
@@ -38,9 +28,13 @@ export const isGameSuccessful = (gameRealisation, name) => {
 export const getUserAswer = () => readlineSync.question('Your answer: ');
 
 export const game = (gameRealisation, gameDescription) => {
-  const name = greeting(gameDescription);
+  console.log('Welcome to the Brain Games!');
+  console.log(gameDescription);
+
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}! \n`);
 
   return isGameSuccessful(gameRealisation, name);
 };
 
-export const askQuestion = (gameQuestion) => console.log(gameQuestion);
+export const askQuestion = (gameQuestion) => console.log(`Question: ${gameQuestion}`);

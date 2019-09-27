@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
 import {
-  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion,
+  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion, game,
 } from '..';
 
 const getExpressionResult = (number1, operation, number2) => {
@@ -28,7 +28,7 @@ export const gameRealisation = () => {
   const randomOperatorNumber = getRandomInt(0, operatorsCount - 1);
   const randomOperatorChosen = operators[randomOperatorNumber];
 
-  const gameQuestion = `Question: ${number1} ${randomOperatorChosen} ${number2}`;
+  const gameQuestion = `${number1} ${randomOperatorChosen} ${number2}`;
   askQuestion(gameQuestion);
 
   const expectedAnswer = getExpressionResult(number1, randomOperatorChosen, number2);
@@ -36,3 +36,5 @@ export const gameRealisation = () => {
 
   return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
 };
+
+export default () => game(gameRealisation, gameDescription);

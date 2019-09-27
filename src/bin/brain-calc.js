@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { gameRealisation, gameDescription } from '../games/calc';
-import { game } from '..';
+import game from '../games/calc';
 
-game(gameRealisation, gameDescription);
+game();

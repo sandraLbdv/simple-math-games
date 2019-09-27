@@ -1,5 +1,5 @@
 import {
-  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion,
+  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion, game,
 } from '..';
 
 const isPrime = (number) => {
@@ -21,7 +21,7 @@ export const gameDescription = 'Answer "yes" if given number is prime. Otherwise
 export const gameRealisation = () => {
   const question = getRandomInt(0, 50);
 
-  const gameQuestion = `Question: ${question}`;
+  const gameQuestion = `${question}`;
   askQuestion(gameQuestion);
 
   const expectedAnswer = isPrime(question) ? 'yes' : 'no';
@@ -29,3 +29,5 @@ export const gameRealisation = () => {
 
   return isAnswerCorrect(expectedAnswer, receivedAnswer);
 };
+
+export default () => game(gameRealisation, gameDescription);

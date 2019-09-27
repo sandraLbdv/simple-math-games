@@ -1,5 +1,5 @@
 import {
-  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion,
+  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion, game,
 } from '..';
 
 const getGCD = (number1, number2) => {
@@ -15,7 +15,7 @@ export const gameRealisation = () => {
   const number1 = getRandomInt(1, 100);
   const number2 = getRandomInt(1, 100);
 
-  const gameQuestion = `Question: ${number1}, ${number2}`;
+  const gameQuestion = `${number1}, ${number2}`;
   askQuestion(gameQuestion);
 
   const expectedAnswer = getGCD(number1, number2);
@@ -23,3 +23,5 @@ export const gameRealisation = () => {
 
   return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
 };
+
+export default () => game(gameRealisation, gameDescription);
