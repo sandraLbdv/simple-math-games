@@ -24,9 +24,7 @@ const gameRealisation = () => {
     }
   }
 
-  const pair = cons(progression, missedMember);
-
-  return pair;
+  return cons(progression, missedMember);
 };
 
 export default () => game(gameRealisation, gameDescription);

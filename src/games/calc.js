@@ -25,13 +25,11 @@ const gameRealisation = () => {
   const operatorsCount = operators.length;
   const randomOperator = operators[getRandomNum(0, operatorsCount - 1)];
 
-  const gameQuestion = `${number1} ${randomOperator} ${number2}`;
+  const question = `${number1} ${randomOperator} ${number2}`;
 
   const expectedAnswer = getExpressionResult(number1, randomOperator, number2);
 
-  const pair = cons(gameQuestion, expectedAnswer);
-
-  return pair;
+  return cons(question, expectedAnswer);
 };
 
 export default () => game(gameRealisation, gameDescription);

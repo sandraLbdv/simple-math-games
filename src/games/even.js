@@ -10,9 +10,7 @@ const gameRealisation = () => {
 
   const expectedAnswer = isEven(question) ? 'yes' : 'no';
 
-  const pair = cons(question, expectedAnswer);
-
-  return pair;
+  return cons(question, expectedAnswer);
 };
 
 export default () => game(gameRealisation, gameDescription);

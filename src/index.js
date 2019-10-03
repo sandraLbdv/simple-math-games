@@ -6,6 +6,8 @@ export const getRandomNum = (min, max) => {
   return Math.round(rand);
 };
 
+const roundsCount = 3;
+
 export const game = (gameRealisation, gameDescription) => {
   console.log('Welcome to the Brain Games!');
   console.log(gameDescription);
@@ -13,7 +15,7 @@ export const game = (gameRealisation, gameDescription) => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}! \n`);
 
-  for (let i = 1; i <= 3; i += 1) {
+  for (let i = 1; i <= roundsCount; i += 1) {
     const pair = gameRealisation();
     console.log(`Question: ${car(pair)}`);
 
@@ -24,9 +26,8 @@ export const game = (gameRealisation, gameDescription) => {
     } else {
       console.log(`'${receivedAnswer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
-      return false;
+      return;
     }
   }
   console.log(`Congratulations, ${name}!`);
-  return true;
 };

@@ -14,13 +14,11 @@ const gameRealisation = () => {
   const number1 = getRandomNum(1, 100);
   const number2 = getRandomNum(1, 100);
 
-  const gameQuestion = `${number1}, ${number2}`;
+  const question = `${number1}, ${number2}`;
 
   const expectedAnswer = getGCD(number1, number2);
 
-  const pair = cons(gameQuestion, expectedAnswer);
-
-  return pair;
+  return cons(question, expectedAnswer);
 };
 
 export default () => game(gameRealisation, gameDescription);
