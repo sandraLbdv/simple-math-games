@@ -1,13 +1,12 @@
-import {
-  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion, game,
-} from '..';
+import { cons } from '@hexlet/pairs';
+import { getRandomNum, game } from '..';
 
 const isPrime = (number) => {
-  if ((number === 1) || (number === 0)) {
+  if (number <= 1) {
     return false;
   }
 
-  for (let i = 2; i < number; i += 1) {
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
     if (number % i === 0) {
       return false;
     }
@@ -16,18 +15,16 @@ const isPrime = (number) => {
   return true;
 };
 
-export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
 
-export const gameRealisation = () => {
-  const question = getRandomInt(0, 50);
-
-  const gameQuestion = `${question}`;
-  askQuestion(gameQuestion);
+const gameRealisation = () => {
+  const question = getRandomNum(0, 50);
 
   const expectedAnswer = isPrime(question) ? 'yes' : 'no';
-  const receivedAnswer = getUserAswer();
 
-  return isAnswerCorrect(expectedAnswer, receivedAnswer);
+  const pair = cons(question, expectedAnswer);
+
+  return pair;
 };
 
 export default () => game(gameRealisation, gameDescription);

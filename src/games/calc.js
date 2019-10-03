@@ -1,7 +1,6 @@
 /* eslint-disable default-case */
-import {
-  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion, game,
-} from '..';
+import { cons } from '@hexlet/pairs';
+import { getRandomNum, game } from '..';
 
 const getExpressionResult = (number1, operation, number2) => {
   switch (operation) {
@@ -17,24 +16,22 @@ const getExpressionResult = (number1, operation, number2) => {
 
 const operators = '+*-';
 
-export const gameDescription = 'What is the result of the expression?\n';
+const gameDescription = 'What is the result of the expression?\n';
 
-export const gameRealisation = () => {
-  const number1 = getRandomInt(0, 10);
-  const number2 = getRandomInt(0, 10);
+const gameRealisation = () => {
+  const number1 = getRandomNum(0, 10);
+  const number2 = getRandomNum(0, 10);
 
   const operatorsCount = operators.length;
+  const randomOperator = operators[getRandomNum(0, operatorsCount - 1)];
 
-  const randomOperatorNumber = getRandomInt(0, operatorsCount - 1);
-  const randomOperatorChosen = operators[randomOperatorNumber];
+  const gameQuestion = `${number1} ${randomOperator} ${number2}`;
 
-  const gameQuestion = `${number1} ${randomOperatorChosen} ${number2}`;
-  askQuestion(gameQuestion);
+  const expectedAnswer = getExpressionResult(number1, randomOperator, number2);
 
-  const expectedAnswer = getExpressionResult(number1, randomOperatorChosen, number2);
-  const receivedAnswer = getUserAswer();
+  const pair = cons(gameQuestion, expectedAnswer);
 
-  return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
+  return pair;
 };
 
 export default () => game(gameRealisation, gameDescription);

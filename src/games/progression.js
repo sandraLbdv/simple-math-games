@@ -1,34 +1,32 @@
-import {
-  getRandomInt, isAnswerCorrect, getUserAswer, askQuestion, game,
-} from '..';
+import { cons } from '@hexlet/pairs';
+import { getRandomNum, game } from '..';
 
-export const gameDescription = 'What number is missing in the progression?\n';
+const gameDescription = 'What number is missing in the progression?\n';
 
-export const gameRealisation = () => {
-  const commonDifference = getRandomInt(1, 10);
-  const missedMemberNumber = getRandomInt(1, 10);
-  const firstMember = getRandomInt(1, 10);
+const gameRealisation = () => {
+  const commonDifference = getRandomNum(1, 10);
+  const missedMemberIndex = getRandomNum(1, 10);
+  const firstMember = getRandomNum(1, 10);
 
   let progression = '';
   let missedMember;
 
-  for (let i = 1, progressionMember = firstMember; i <= 10;
-    i += 1, progressionMember += commonDifference) {
-    if (i === missedMemberNumber) {
-      progression = `${progression} .. `;
-      missedMember = progressionMember;
+  const membersCount = 10;
+
+  for (let i = 1; i <= membersCount; i += 1) {
+    const currentMember = firstMember + commonDifference * i;
+
+    if (i === missedMemberIndex) {
+      progression = `${progression} ..`;
+      missedMember = currentMember;
     } else {
-      progression = `${progression} ${progressionMember}`;
+      progression = `${progression} ${currentMember}`;
     }
   }
 
-  const gameQuestion = `${progression}`;
-  askQuestion(gameQuestion);
+  const pair = cons(progression, missedMember);
 
-  const expectedAnswer = missedMember;
-  const receivedAnswer = getUserAswer();
-
-  return isAnswerCorrect(expectedAnswer, Number(receivedAnswer));
+  return pair;
 };
 
 export default () => game(gameRealisation, gameDescription);

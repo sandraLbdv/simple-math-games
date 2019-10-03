@@ -1,21 +1,18 @@
-import {
-  getRandomInt, isAnswerCorrect, askQuestion, getUserAswer, game,
-} from '..';
+import { cons } from '@hexlet/pairs';
+import { getRandomNum, game } from '..';
 
 const isEven = (number) => number % 2 === 0;
 
-export const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".\n';
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".\n';
 
-export const gameRealisation = () => {
-  const randomInt = getRandomInt(0, 100);
-  const gameQuestion = `${randomInt}`;
-  askQuestion(gameQuestion);
+const gameRealisation = () => {
+  const question = getRandomNum(0, 100);
 
-  const expectedAnswer = isEven(randomInt) ? 'yes' : 'no';
+  const expectedAnswer = isEven(question) ? 'yes' : 'no';
 
-  const receivedAnswer = getUserAswer();
+  const pair = cons(question, expectedAnswer);
 
-  return isAnswerCorrect(expectedAnswer, receivedAnswer);
+  return pair;
 };
 
 export default () => game(gameRealisation, gameDescription);
