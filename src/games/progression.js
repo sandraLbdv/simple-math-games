@@ -1,30 +1,30 @@
 import { cons } from '@hexlet/pairs';
-import { getRandomNum, game } from '..';
+import getRandomNum from '../utils';
+import game from '..';
 
-const gameDescription = 'What number is missing in the progression?\n';
+const gameDescription = 'What number is missing in the progression?';
 
-const gameRealisation = () => {
+const progressionLength = 10;
+
+const generateGameData = () => {
   const commonDifference = getRandomNum(1, 10);
-  const missedMemberIndex = getRandomNum(1, 10);
+  const missedMemberIndex = getRandomNum(0, progressionLength - 1);
   const firstMember = getRandomNum(1, 10);
 
-  let progression = '';
-  let missedMember;
+  let question = '';
+  const expectedAnswer = firstMember + commonDifference * missedMemberIndex;
 
-  const membersCount = 10;
-
-  for (let i = 1; i <= membersCount; i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     const currentMember = firstMember + commonDifference * i;
 
     if (i === missedMemberIndex) {
-      progression = `${progression} ..`;
-      missedMember = currentMember;
+      question = `${question} ..`;
     } else {
-      progression = `${progression} ${currentMember}`;
+      question = `${question} ${currentMember}`;
     }
   }
 
-  return cons(progression, missedMember);
+  return cons(question.trim(), expectedAnswer);
 };
 
-export default () => game(gameRealisation, gameDescription);
+export default () => game(generateGameData, gameDescription);
