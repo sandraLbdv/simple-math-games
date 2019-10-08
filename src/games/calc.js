@@ -23,9 +23,7 @@ const generateGameData = () => {
   const number1 = getRandomNum(0, 10);
   const number2 = getRandomNum(0, 10);
 
-  const operatorsCount = operators.length;
-
-  const randomOperator = operators[getRandomNum(0, operatorsCount - 1)];
+  const randomOperator = operators[getRandomNum(0, operators.length - 1)];
 
   const question = `${number1} ${randomOperator} ${number2}`;
 
