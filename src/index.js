@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-import { car, cdr } from '@hexlet/pairs';
 
 const roundsCount = 3;
 
@@ -13,12 +12,11 @@ export default (generateGameData, gameDescription) => {
   console.log();
 
   for (let i = 1; i <= roundsCount; i += 1) {
-    const gameData = generateGameData();
-    console.log(`Question: ${car(gameData)}`);
+    const { question, expectedAnswer } = generateGameData();
+    console.log(`Question: ${question}`);
 
     const receivedAnswer = readlineSync.question('Your answer: ');
-    const expectedAnswer = String(cdr(gameData));
-    if (receivedAnswer === expectedAnswer) {
+    if (receivedAnswer === String(expectedAnswer)) {
       console.log('Correct!');
     } else {
       console.log(`'${receivedAnswer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);

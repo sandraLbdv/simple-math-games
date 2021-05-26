@@ -1,4 +1,3 @@
-import { cons } from '@hexlet/pairs';
 import getRandomNum from '../utils';
 import game from '..';
 
@@ -24,7 +23,7 @@ const generateGameData = () => {
     }
   }
 
-  return cons(question.trim(), expectedAnswer);
+  return { question: question.trim(), expectedAnswer };
 };
 
 export default () => game(generateGameData, gameDescription);

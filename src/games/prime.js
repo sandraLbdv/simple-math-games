@@ -1,4 +1,3 @@
-import { cons } from '@hexlet/pairs';
 import getRandomNum from '../utils';
 import game from '..';
 
@@ -23,7 +22,7 @@ const generateGameData = () => {
 
   const expectedAnswer = isPrime(question) ? 'yes' : 'no';
 
-  return cons(question, expectedAnswer);
+  return { question, expectedAnswer };
 };
 
 export default () => game(generateGameData, gameDescription);

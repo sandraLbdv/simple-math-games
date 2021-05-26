@@ -1,5 +1,3 @@
-/* eslint-disable default-case */
-import { cons } from '@hexlet/pairs';
 import getRandomNum from '../utils';
 import game from '..';
 
@@ -13,8 +11,8 @@ const getExpressionResult = (number1, operation, number2) => {
       return (number1 * number2);
     case '-':
       return (number1 - number2);
+    default: return null;
   }
-  return null;
 };
 
 const gameDescription = 'What is the result of the expression?';
@@ -29,7 +27,7 @@ const generateGameData = () => {
 
   const expectedAnswer = getExpressionResult(number1, operator, number2);
 
-  return cons(question, expectedAnswer);
+  return { question, expectedAnswer };
 };
 
 export default () => game(generateGameData, gameDescription);
