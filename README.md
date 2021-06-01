@@ -17,24 +17,126 @@
 
 - Калькулятор
 
-  [![asciicast](https://asciinema.org/a/HytKpiL4tEQtETI09ANDN0vO7.svg)](https://asciinema.org/a/HytKpiL4tEQtETI09ANDN0vO7)
+```
+$ brain-calc
+Welcome to the Brain Games!
+What is the result of the expression?
+
+May I have your name? sandra
+Hello, sandra!
+
+Question: 3 - 8
+Your answer: -5
+Correct!
+Question: 8 + 10
+Your answer: 18
+Correct!
+Question: 9 - 0
+Your answer: 9
+Correct!
+Congratulations, sandra!
+```
 
 - Прогрессия
 
-  [![asciicast](https://asciinema.org/a/NMEaEmX42P1lve7nyPZ0ZDWSL.svg)](https://asciinema.org/a/NMEaEmX42P1lve7nyPZ0ZDWSL)
+```
+$ brain-progression
+Welcome to the Brain Games!
+What number is missing in the progression?
+
+May I have your name? ivan
+Hello, ivan!
+
+Question: 8 18 28 38 48 58 68 78 .. 98
+Your answer: 88
+Correct!
+Question: 7 14 21 28 35 .. 49 56 63 70
+Your answer: 42
+Correct!
+Question: 9 16 23 30 37 44 51 58 .. 72
+Your answer: 65
+Correct!
+Congratulations, ivan!
+```
 
 - Определение четного числа
 
-  [![asciicast](https://asciinema.org/a/CLn5jeL3JdJu0TQABBDEY8eHn.svg)](https://asciinema.org/a/CLn5jeL3JdJu0TQABBDEY8eHn)
+```
+$ brain-even
+Welcome to the Brain Games!
+Answer "yes" if the number is even, otherwise answer "no".
+
+May I have your name? anna
+Hello, anna!
+
+Question: 11
+Your answer: no
+Correct!
+Question: 86
+Your answer: yes
+Correct!
+Question: 35
+Your answer: no
+Correct!
+Congratulations, anna!
+```
 
 - Определение наибольшего общего делителя
 
-  [![asciicast](https://asciinema.org/a/Fx3uTQxEcW1VWLMU7qLGl3Apy.svg)](https://asciinema.org/a/Fx3uTQxEcW1VWLMU7qLGl3Apy)
+```
+$ brain-gcd
+Welcome to the Brain Games!
+Find the greatest common divisor of given numbers.
+
+May I have your name? andrew
+Hello, andrew!
+
+Question: 99, 63
+Your answer: 9
+Correct!
+Question: 81, 46
+Your answer: 1
+Correct!
+Question: 88, 20
+Your answer: 4
+Correct!
+Congratulations, andrew!
+```
 
 - Определение простого числа
 
-  [![asciicast](https://asciinema.org/a/3hWRO3qh3tFVzmE85GfCyalVr.svg)](https://asciinema.org/a/3hWRO3qh3tFVzmE85GfCyalVr)
+```
+$ brain-prime
+Welcome to the Brain Games!
+Answer "yes" if given number is prime. Otherwise answer "no".
+
+May I have your name? dave
+Hello, dave!
+
+Question: 26
+Your answer: no
+Correct!
+Question: 23
+Your answer: yes
+Correct!
+Question: 35
+Your answer: no
+Correct!
+Congratulations, dave!
+```
 
 ### Пример проигрыша:
 
-  [![asciicast](https://asciinema.org/a/wyydnLYfZ9T8FHwbtrWYfK8GU.svg)](https://asciinema.org/a/wyydnLYfZ9T8FHwbtrWYfK8GU)
+```
+$ brain-calc
+Welcome to the Brain Games!
+What is the result of the expression?
+
+May I have your name? olga
+Hello, olga!
+
+Question: 1 * 1
+Your answer: 15
+'15' is wrong answer ;(. Correct answer was '1'.
+Let's try again, olga!
+```
